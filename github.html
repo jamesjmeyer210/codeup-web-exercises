@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=divice-width, user-scalable=no, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatable" content="ie=edge">
+        <title>Github</title>
+        <style>
+            a {
+                text-decoration: none;
+                text-decoration-line: none;
+                text-decoration-style: solid;
+                text-decoration-color: currentColor;
+            }
+            body {
+                font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+                margin: 2em;
+            }
+            div {
+                clear: both;
+                margin: 3em;
+            }
+            .gh-nav {
+                background-color: #24292e;
+                list-style-type: none;
+            }
+            .gh-icon>gh-nav{
+                float: left;
+            }
+            .nav-links>gh-nav {
+                text-decoration-color: azure;
+                float: right;
+                list-style: none !important;
+                list-style-position: outside;
+            }
+            .inline-list ,li{
+                display: inline;
+            }
+            .footer-list ,ul{
+                display: inline-block;
+            }
+            .footer-list-left>inline-list{
+                float: left;
+            }
+            .footer-list-right>inline-list{
+                float: right;
+            }
+            .user-icon {
+                float: left;
+            }
+            /*.user-name {
+                float: right;
+            }*/
+        </style>
+    </head>
+    <body>
+        <nav class="gh-nav">
+            <!--
+            <div class="nav-bar-wrapper">
+                <input id="github-search-input" class="nav-bar-search" type="text" autocomplete="off">
+            </div>
+            -->
+            <div class="nav-links">
+                <ul class="inline-list">
+                    <li class="gh-icon">
+                        <a href="http://www.github.com"><img src="img/github_icon_64x64.png"></a>
+                    </li>
+                    <li><a href="8.8.8.8">Pull Requests</a></li>
+                    <li><a href="8.8.8.8">Issues</a></li>
+                    <li><a href="8.8.8.8">Marketplace</a></li>
+                    <li><a href="8.8.8.8">Explore</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <div>
+                <a href="http://www.codeup.com"><img class="user-icon" src="img/codeup_icon.png"></a>
+                <h2 class="user-name">Codeup</h2>
+            </div>
+            <div>
+                <section>
+                    <ul class="inline-list">
+                        <li>Repositories</li>
+                        <li>People</li>
+                        <li>Teams</li>
+                        <li>Projects</li>
+                        <li>Settings</li>
+                    </ul>
+                </section>
+            </div>
+            <div class="sub-page-people">
+                <table>
+                    <tr>
+                        <th>Codeup's Dev Team</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Kent Beck</li>
+                                <li>Kent Beck</li>
+                            </ul>
+                        <td>
+                        <td>Member</td>
+                        <td>1 team</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Codeup Instruction Staff</li>
+                                <li>CodeupInstructors</li>
+                            </ul>
+                        <td>
+                        <td>Member</td>
+                        <td>1 team</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Martin Flower</li>
+                                <li>0x00</li>
+                            </ul>
+                        <td>
+                        <td>Member</td>
+                        <td>0 teams</td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+        <footer>
+            <ul class="footer-list">
+                <li class="footer-list-left">
+                    <ul>
+                        <li>2018 Github, Inc.</li>
+                        <li>Terms</li>
+                        <li>Privacy</li>
+                        <li>Security</li>
+                        <li>Status</li>
+                        <li>Help</li>
+                    </ul>
+                </li>
+                <li class="footer-list-right">
+                    <ul>
+                        <li>Contact Github</li>
+                        <li>API</li>
+                        <li>Training</li>
+                        <li>Shop</li>
+                        <li>Blog</li>
+                        <li>About</li>
+                    </ul>
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>
