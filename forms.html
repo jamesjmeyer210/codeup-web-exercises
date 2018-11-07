@@ -50,16 +50,6 @@
     <body>
         <div class="input-form">
             <form action="https://request-inspector.glitch.me" method="POST">
-                <!--
-                <div class="input-box">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="text">
-                </div>
-                <div class="input-box">
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password">
-                </div>
-                -->
                 <div>
                     <table class="input-table">
                         <tr>
@@ -98,27 +88,21 @@
                 </div>
                 <div>
                     <h3 class="offset-subtitle">Which browser are you using?</h3>
-                    <label for="0x01">
-                        Firefox <input id="0x01" type="radio" name="browser" value="0x01">
-                    </label>
-                    <label for="0x02">
-                        Chrome <input id="0x02" type="radio" name="browser" value="0x02">
-                    </label>
-                    <label for="0x03">
-                        Explorer <input id="0x03" type="radio" name="browser" value="0x03">
-                    </label>
-                    <label for="0x04">
-                        Edge <input id="0x04" type="radio" name="browser" value="0x04">
-                    </label>
-                    <label for="0x05">
-                        Tor <input id="0x05" type="radio" name="browser" value="0x05">
-                    </label>
-                    <label for="0x06">
-                        Lynx <input id="0x06" type="radio" name="browser" value="0x06">
-                    </label>
-                    <label for="0x07">
-                        Other <input id="0x07" type="radio" name="browser" value="0x07">
-                    </label>
+                    <div class="offset-button">
+                        <select name="Browser_Options">
+                            <option id="b00" name="Browser_Options">Firefox</option>
+                            <option id="b01" name="Browser_Options">Chrome</option>
+                            <option id="b02" name="Browser_Options">Edge</option>
+                            <option id="b03" name="Browser_Options">Explorer</option>
+                            <option id="b04" name="Browser_Options">Safari</option>
+                            <option id="b05" name="Browser_Options">Opera</option>
+                            <option id="b06" name="Browser_Options">Tor</option>
+                            <option id="b07" name="Browser_Options">Vivaldi</option>
+                            <option id="b08" name="Browser_Options">Brave</option>
+                            <option id="b09" name="Browser_Options">Lynx</option>
+                            <option id="b10" name="Browser_Options">Netscape</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="offset-button">
                     <button type="submit">Submit</button>
