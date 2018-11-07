@@ -21,4 +21,4 @@ echo "<!DOCTYPE html>\n"\
 "\t\t<footer>\n"\
 "\t\t</footer>\n"\
 "\t</body>\n"\
-"</html>" > "$1"
+"</html>" | sed 's/[\t]/    /g' > "$1"
