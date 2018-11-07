@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=divice-width, user-scalable=no, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatable" content="ie=edge">
+        <title>Register With Us</title>
+        <style>
+            body {
+                /* font settings */
+                font-family: Consolas,"courier new", monospace;
+                font-size: 14px;
+                color: beige;
+                /* background settings */
+                background-color: darkslategrey;
+            }
+            .input-table{
+                padding-top: 2%;
+                padding-bottom: 2%;
+                padding-left: 5%;
+                padding-right: 5%;
+                text-align: left;
+                /*border-bottom: 1px solid beige;*/
+            }
+            .email-table {
+                padding: 5%;
+            }
+            .questionare-table{
+                border: 1px solid azure;
+            }
+            .offset-subtitle {
+                padding-right: 3%;
+                padding-left: 3%;
+                text-align: left;
+            }
+            .offset-button {
+                padding-top: 2%;
+                padding-bottom: 2%;
+                padding-left: 5%;
+                padding-right: 5%;
+                /*text-align: center; <-- centers the button*/
+            }
+            textarea {
+                height: 100px;
+                width: 40%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="input-form">
+            <form action="https://request-inspector.glitch.me" method="POST">
+                <!--
+                <div class="input-box">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="text">
+                </div>
+                <div class="input-box">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password">
+                </div>
+                -->
+                <div>
+                    <table class="input-table">
+                        <tr>
+                            <td class="email-table"><label for="email">Email</label></td>
+                            <td class="email-table"><input id="email" name="email" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="email-table"><label for="password">Password</label></td>
+                            <td class="email-table"><input id="password" name="password" type="password"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="input-table">
+                    <textarea id="email_message" name="email_message"></textarea>
+                </div>
+                <div>
+                    <h3 class="offset-subtitle">How did you hear about us?</h3>
+                    <table class="questionare-table input-table">
+                        <tr>
+                            <td><label for="checkbox1">Billboard</label></td>
+                            <td><input id="checkbox1" name="questionare" value="true" type="checkbox"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Radio Advertizement</label></td>
+                            <td><input id="checkbox2" name="questionare" value="true" type="checkbox"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Internet Advertizement</label></td>
+                            <td><input id="checkbox3" name="questionare" value="true" type="checkbox"><br></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Other</label></td>
+                            <td><input id="checkbox4" name="questionare" value="true" type="checkbox"><br></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h3 class="offset-subtitle">Which browser are you using?</h3>
+                    <label for="0x01">
+                        Firefox <input id="0x01" type="radio" name="browser" value="0x01">
+                    </label>
+                    <label for="0x02">
+                        Chrome <input id="0x02" type="radio" name="browser" value="0x02">
+                    </label>
+                    <label for="0x03">
+                        Explorer <input id="0x03" type="radio" name="browser" value="0x03">
+                    </label>
+                    <label for="0x04">
+                        Edge <input id="0x04" type="radio" name="browser" value="0x04">
+                    </label>
+                    <label for="0x05">
+                        Tor <input id="0x05" type="radio" name="browser" value="0x05">
+                    </label>
+                    <label for="0x06">
+                        Lynx <input id="0x06" type="radio" name="browser" value="0x06">
+                    </label>
+                    <label for="0x07">
+                        Other <input id="0x07" type="radio" name="browser" value="0x07">
+                    </label>
+                </div>
+                <div class="offset-button">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
