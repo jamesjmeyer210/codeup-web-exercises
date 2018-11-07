@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=divice-width, user-scalable=no, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatable" content="ie=edge">
+        <style>
+            /* Matrix Theme */
+            body {
+                /* font settings */
+                font-family: Consolas,"courier new", monospace;
+                font-size: 14px;
+                color: chartreuse;
+                /* background settings */
+                background-color: #090e09;
+            }
+            td {
+                padding: 5px;
+            }
+            input {
+                background-color: #23282b;
+                border-color: black;
+                border-style: hidden;
+                color: #52a7e5;
+                font-size: 14px;
+            }
+            button {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                padding-left: 10px;
+                padding-right: 10px;
+                background-color: #23282b;
+                border-color: green;
+                border-style: solid;
+                color: greenyellow;
+                font-size: 14px;
+            }
+            .button-position {
+                padding: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+            <form action="https://request-inspector.glitch.me" method="POST">
+                <table>
+                    <tr>
+                        <td><label for="username">Username</label><td>
+                        <td><input id="username" name="username" type="text" required="true"></td>
+                    <tr>
+                    <tr>
+                        <td><label for="email">Email</label><td>
+                        <td><input id="email" name="email" type="text" required="true"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password</label><td>
+                        <td><input id="password" name="password" type="password" required="true"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="re_password">Retype Password</label><td>
+                        <td><input id="re_password" name="re_password" type="password" required="true"></td>
+                    </tr>
+                </table>
+                <div class="button-position">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </main>
+        <footer>
+        </footer>
+    </body>
+</html>
