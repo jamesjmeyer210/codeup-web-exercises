@@ -9,7 +9,7 @@ echo "<!DOCTYPE html>\n"\
 "\t<head>\n"\
 "\t\t<meta charset=\"UTF-8\">\n"\
 "\t\t<meta name=\"viewport\"\n"\
-"\t\tcontent=\"width=divice-width, user-scalable=no, initial-scale=1.0\">\n"\
+"\t\t\tcontent=\"width=divice-width, user-scalable=no, initial-scale=1.0\">\n"\
 "\t\t<meta http-equiv=\"X-UA-Compatable\" content=\"ie=edge\">\n"\
 "\t\t<style></style>\n"\
 "\t</head>\n"\
