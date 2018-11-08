@@ -1,5 +1,64 @@
-h1 {
-    color: purple;
-    size: 32px;
-    font-family: "Courier", monospace;
+
+header {
+    align-content: center;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image:
+            linear-gradient(to right,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0));
+}
+
+.body-background {
+    /* The image used */
+    background-image: url("../img/manhattanhenge_sunset.jpg");
+
+    /* Set a specific height */
+    min-height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    font-family: monospace;
+    font-size: 14px;
+    color: beige;
+    background-color: darkslategrey;
+}
+
+li {
+    list-style: circle;
+}
+
+.main-heading {
+    text-align: center;
+    padding: 5%;
+    text-shadow: #000 0px 0px 1px;;
+}
+
+h1.title {
+    font-size: 32px;
+}
+
+p.sub-title {
+    font-size: 20px;
+}
+
+.info-bkg {
+    background-color: rgba(0,0,0,.95);
+    padding: 2%;
+    width: 100%;
+}
+
+.empty-bkg {
+    background-color: rgba(0,0,0,.05);
+    padding: 2.5%;
 }
