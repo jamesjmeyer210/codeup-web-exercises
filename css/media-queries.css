@@ -1,0 +1,115 @@
+body {
+    font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+}
+
+/* mobile version */
+@media screen and (min-width: 0px) and (max-width: 365px){
+    .alert-info, li {
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        padding: 1em;
+        text-align: center;
+        margin: 1% 1% 2% 2%;
+    }
+    .alert-info {
+        background-color: #cbffcd;
+    }
+    .hidden-on-desktop {
+
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    /* List classes */
+    .nav-links {
+        list-style: none;
+        padding: 0px;
+    }
+    li {
+        background-color: #DDDDDD;
+        border-style: none;
+        padding: 1em;
+    }
+
+    .header-img {
+        /*margin-left: calc( (100% - 330px) / 2);*/
+        /*margin-right: calc( (100% - 330px) / 2);*/
+        /*padding: 1em;*/
+        /*align-content: center;*/
+        /*align-items: center;*/
+    }
+
+    img {
+        /*alignment: center;*/
+        max-width: 330px;
+        max-height: 224px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .main {
+
+    }
+    .sub-section {
+
+    }
+}
+/* desktop version */
+@media screen and (min-width: 366px){
+    .alert-info {
+
+    }
+    .hidden-on-desktop {
+        display: none;
+    }
+
+    h1 {
+        float: left;
+        min-width: 60%;
+    }
+
+    .nav-links {
+        list-style-type: none;
+        float: left;
+        text-align: right;
+        margin: 40px 2% 2% 2%;
+        min-width: 30%;
+        /*min-height: 80%;*/
+    }
+
+    li {
+        display: inline;
+        padding: 2% 2% 2% 2%;
+        font-size: 12px;
+    }
+
+    .header-img {
+
+    }
+
+    .main, .sub-section {
+        margin: 2%;
+    }
+
+    .main {
+        float: left;
+        max-width: calc(70% - 8%);
+    }
+
+    .sub-section {
+        float: left;
+        max-width: calc(30% - 8%);
+    }
+
+    footer {
+        font-size: 10px;
+        float: right;
+        padding-left: 10%;
+        min-width: 100%;
+    }
+}
