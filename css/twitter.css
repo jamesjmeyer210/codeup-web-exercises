@@ -27,10 +27,16 @@ a {
 }
 .top-nav {
     background: var(--light-bg);
+    position: fixed;
+    width: 100%;
+    /* z-index causes this item to overlap all other items.
+        The z-index is some kind of stack based system where
+        the foremost element must be the highest value.*/
+    z-index: 10;
 }
 .nav {
     list-style-type: none;
-    padding: 0;
+    padding: 1.5em;
     margin: 0;
 }
 .nav-link {
@@ -41,9 +47,41 @@ a {
 .nav-link:hover {
     color: var(--link-color);
 }
+
+.nav-item {
+    display: inline;
+    padding: 1.5em;
+    /*width: 100%;*/
+    /*position: fixed;*/
+}
+
+/* Profile class - effects the profile banner found in the header */
 .profile {
     background: var(--light-bg);
+    /*padding-top: 1em;*/
+    /*padding-bottom: 1.5em;*/
+    /*position: absolute;*/
+    width: 100%;
+    height: 80px;
 }
+
+.profile-header {
+    /* within .profile*/
+}
+
+.profile-image {
+    /* within .profile-header */
+    float: left;
+    position: relative;
+    top: -25px;
+}
+
+.profile-form {
+    /* within .profile-header */
+    line-height: 80px;
+}
+
+/* this css was here when I got here */
 .btn {
     border: 1px solid var(--main-link-color);
     color: var(--main-link-color);
@@ -65,4 +103,55 @@ a {
 }
 .text-muted {
     color: var(--main-link-color);
+}
+/* end foreign css */
+
+/* Container css
+    The classes below all inherit from .container
+*/
+.container {
+    /* padding to keep elements in the container off the edges of the screen. */
+    padding-top: 2em;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+.profile-details {
+    /* This is the right column
+    Should appear on the left of the page.
+    The classes that inherit from this are .profile-items and .profile-entry
+    */
+    width: 25%;
+}
+
+.profile-items {
+    /* extends .profile-details, .container */
+}
+
+.profile-entry {
+    /* extends .profile-items, .profile-details, .container*/
+
+}
+
+.media {
+    background-color: white;
+    /*margin-top: 1%;*/
+    /*margin-bottom: 1%;*/
+    /*padding: 5% 2% 2% 2%;*/
+}
+
+.timeline {
+    /* This is the center column */
+    /* should be centered w/ white background */
+    width: 50%;
+}
+
+.who-to-follow {
+    /* This is the right column */
+    width: 25%
+}
+
+.profile-details, .who-to-follow, .timeline {
+    float: left;
+    margin: 0 0.5em;
 }
