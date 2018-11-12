@@ -21,7 +21,7 @@
 .column {
     float: left;
     padding: 10px;
-    border: 1px black solid;
+    /*border: 1px black solid;*/
 }
 
 .column.one-half {
@@ -42,4 +42,12 @@
 
 .column.one-eighth {
     width: 12.5%;
+}
+/* seventy percent*/
+.column.seventy-percent {
+    width: 70%;
+}
+/* thirty percent*/
+.column.thirty-percent {
+    width: 30%;
 }
