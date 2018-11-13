@@ -9,7 +9,11 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
+
     <title>Order Pizza</title>
 </head>
 <body>
@@ -30,7 +34,7 @@
                     <li class="nav-item">
                         <form class="form-inline my-2 my-lg-0">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Stores Near You</button>
+                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search Stores Near You</button>
                         </form>
                     </li>
                 </ul>
@@ -49,13 +53,22 @@
         <!--Taps-->
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Size and Crust</a>
+                <a class="nav-link active" href="#">
+                    <span class="badge badge-secondary">1</span>
+                    Size and Crust
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cheese and Sauce</a>
+                <a class="nav-link" href="#">
+                    <span class="badge badge-secondary">2</span>
+                    Cheese and Sauce
+                </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Toppings</a>
+                <a class="nav-link" href="#">
+                    <span class="badge badge-secondary">3</span>
+                    Toppings
+                </a>
             </li>
         </ul>
         <!--Tab items expanded as cards-->
@@ -122,6 +135,9 @@
                     </ul>
                 </div>
             </div>
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-primary">Next Step <i class="fas fa-caret-right"></i></button>
+            </div>
         </div>
         <!-- "Choose Cheese and Sauce" Menu -->
         <div class="card">
@@ -167,6 +183,10 @@
                     </div>
 
                 </div>
+            </div>
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-primary"><i class="fas fa-caret-left"></i> Previous Step</button>
+                <button type="button" class="btn btn-primary">Next Step <i class="fas fa-caret-right"></i></button>
             </div>
         </div>
         <!-- "Choose Toppings" menu -->
@@ -225,6 +245,9 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+            <div class="card-footer text-right">
+                <button type="button" class="btn btn-primary">Checkout <i class="fas fa-shopping-cart"></i></button>
             </div>
         </div>
     </div>
