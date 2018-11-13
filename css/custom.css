@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+    background-color: rgba(255,255,255,0.5);
+}
+
+a {
+    padding: 1em;
+}
+
+.display-5 {
+    margin: 1em 1em 0.5em 0em;
+}
+
+.jumbotron-fluid {
+    margin-bottom: 0px;
+    background: url(../img/pizza.png) no-repeat center center;
+    height: 346px;
+}
+
