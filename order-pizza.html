@@ -140,7 +140,11 @@
                 </div>
             </div>
             <div class="card-footer text-right">
-                <button type="button" class="btn btn-primary">Next Step <i class="fas fa-caret-right"></i></button>
+                <button type="button"
+                        class="btn btn-primary"
+                        value="next_step"
+                        onclick="document.getElementById('cheese_menu').scrollIntoView();">
+                    Next Step <i class="fas fa-caret-right"></i></button>
             </div>
         </div>
 
@@ -196,8 +200,16 @@
                 </div>
             </div>
             <div class="card-footer text-right">
-                <button type="button" class="btn btn-primary"><i class="fas fa-caret-left"></i> Previous Step</button>
-                <button type="button" class="btn btn-primary">Next Step <i class="fas fa-caret-right"></i></button>
+
+                <button type="button"
+                        class="btn btn-primary"
+                        onclick="document.getElementById('crust_menu').scrollIntoView();">
+                    <i class="fas fa-caret-left"></i> Previous Step</button>
+
+                <button type="button"
+                        class="btn btn-primary"
+                        onclick="document.getElementById('meat_menu').scrollIntoView();">
+                    Next Step <i class="fas fa-caret-right"></i></button>
             </div>
         </div>
 
