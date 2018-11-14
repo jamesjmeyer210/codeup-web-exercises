@@ -3,6 +3,10 @@ h1 {
     background-color: rgba(255,255,255,0.5);
 }
 
+h5, h6 {
+    padding: 0.5em;
+}
+
 a {
     padding: 1em;
 }
@@ -15,4 +19,9 @@ a {
     margin-bottom: 0px;
     background: url(../img/pizza.png) no-repeat center center;
     height: 346px;
+}
+
+.seperator {
+    margin: 1em 1em 0em 0em;
+    width: 100%;
 }
