@@ -96,28 +96,68 @@ enterNum();
 //                  will contain a different color everytime the page loads)
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+function analyzeColor(color){
+  var message = "";
+
+  switch (color) {
+    case "red":
+      message = "The hexcode for red is: #FF0000";
+      break;
+    case "orange":
+      message = "The hexcode for orange is: #FF8000";
+      break;
+    case "yellow":
+      message = "The hexcode for yellow is: #FFFF00";
+      break;
+    case "green":
+      message = "The hexcode for green is: #01DF01";
+      break;
+    case "blue":
+      message = "The hexcode for blue is: #0000FF";
+      break;
+    case "indigo":
+      message = "The hexcode for indigo is: #4B0082";
+      break;
+    case "violet":
+      message = "The hexcode for violet is: #EE82EE";
+      break;
+    default:
+      message = "Unknown color";
+      break;
+  }
+  message.trim();
+  return message;
+}
+
 /**
- * TODO:
+ * COMPLETE:
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message everytime you refresh the page
  */
-
+{
+  console.log( analyzeColor(randomColor) );
+}
 /**
- * TODO:
+ * COMPLETE:
  * Refactor your above function to use a switch-case statement
  */
 
 /**
- * TODO:
+ * COMPLETE:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+{
+  var user_color = prompt("Please choose a color.");
+  alert(analyzeColor(user_color.toLowerCase()));
+}
 
 /* ########################################################################## */
 
 /**
- * TODO:
+ * COMPLETE:
  * Suppose there's a promotion in Walmart, each customer is given a randomly
  * generated "lucky number" between 0 and 5. If your lucky number is 0 you have
  * no discount, if your lucky number is 1 you'll get a 10% discount, if it's 2,
@@ -135,13 +175,25 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+var discounts = [0.0, 0.01, 0.25, 0.35, 0.5, 1.0];
 
+function calculateTotal(total, lucky_number){
+  console.assert(lucky_number < discounts.length && lucky_number > -1);
+  return total - (total * discounts[lucky_number]);
+}
 /**
- * TODO:
+ * COMPLETE:
  * Uncomment the line below to generate a random number between 0 and 6.
  * Prompt the user for their total bill, then use your `calculateTotal` function
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-// Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+{
+   var lucky_number = Math.floor(Math.random() * 6);
+   var user_in = prompt("Please enter your shopping cart total");
+   console.assert(!isNaN(user_in));
+   var discounted_price = calculateTotal(user_in, lucky_number);
+   alert("The lucky number is: " + lucky_number + "\n"
+      + "Your previous total was: $" + user_in + "\n"
+      + "Your new total is: $" + discounted_price);
+}
