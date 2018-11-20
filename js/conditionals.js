@@ -190,10 +190,10 @@ function calculateTotal(total, lucky_number){
  */
 {
    var lucky_number = Math.floor(Math.random() * 6);
-   var user_in = prompt("Please enter your shopping cart total");
+   var user_in = parseFloat(prompt("Please enter your shopping cart total"));
    console.assert(!isNaN(user_in));
    var discounted_price = calculateTotal(user_in, lucky_number);
    alert("The lucky number is: " + lucky_number + "\n"
-      + "Your previous total was: $" + user_in + "\n"
-      + "Your new total is: $" + discounted_price);
+      + "Your previous total was: $" + user_in.toFixed(2) + "\n"
+      + "Your new total is: $" + discounted_price.toFixed(2));
 }
