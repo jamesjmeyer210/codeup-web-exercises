@@ -36,7 +36,7 @@ function calcMovieRentalFee(){
   return (m1.days + m2.days + m3.days) * rate;
 }
 
-console.log("Total rental fees: $" + calcMovieRentalFee());
+alert("Total rental fees: $" + calcMovieRentalFee());
 
 // --------------------------------------------------
 // ------------------- Part 2 -----------------------
@@ -58,7 +58,7 @@ function calculatePay(){
   return google.pay() + amazon.pay() + facebook.pay();
 }
 
-console.log("The total pay is: $" + calculatePay());
+alert("The total pay is: $" + calculatePay());
 
 // --------------------------------------------------
 // ------------------- Part 3 -----------------------
@@ -82,7 +82,7 @@ function canEnroll(){
   var course = new Course(30, 29);
   var schedule_conflicts = false;
   if(!schedule_conflicts && course.enrollStudent){
-    console.log("The student is enrolled!");
+    alert("The student is enrolled!");
   }
 }
 
@@ -96,13 +96,13 @@ canEnroll();
 var shopping_cart = {
   total: 0,
   is_premium: false,
-  item_count: 1,
-  item_list: [""]
+  item_count: 0,
+  item_list: []
 };
 
 function init_shopping_cart(self){
   self.item_count = 0;
-  self.item_list.unshift();
+  // self.item_list.unshift();
 }
 
 function add_item(self, item, price){
@@ -128,10 +128,11 @@ function applyDiscount(cart){
   if(cart.item_count > 2 && (cur_date < end_date) ){
     return (cart.total - (cart.total * discount));
   } else {
-    console.log("The user does not meet the parameters for the discount.");
+    alert("The user does not meet the parameters for the discount.");
     return cart.total;
   }
 }
 
-console.log("Shopping cart total: $" + shopping_cart.total);
-console.log("After discount: $" + applyDiscount(shopping_cart));
+alert("Shopping cart total: $" + shopping_cart.total);
+alert("After discount: $" + applyDiscount(shopping_cart));
+console.log(JSON.stringify(shopping_cart));
