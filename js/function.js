@@ -1,14 +1,7 @@
 "use strict";
 
 const TYPE_ERROR = "Invalid type!"
-/**
- * TODO:
- * Create a function called 'sayHello' that takes a parameter 'name'.
- * When called, the function should return a message that says hello to the passed in name.
- *
- * Example
- * > sayHello("codeup") // returns "Hello, codeup!"
- */
+
 function sayHello(name) {
   if(typeof(name) != "string"){
     console.error(TYPE_ERROR);
@@ -17,30 +10,26 @@ function sayHello(name) {
   }
 }
 
+{
+  var user_name = prompt("Please enter your name.");
+  var helloMessage = sayHello(user_name);
+  alert(helloMessage);
+}
 /**
- * TODO:
- * Call the function 'sayHello' and pass your name as a string literal argument.
- * Store the result of the function call in a variable named 'helloMessage'.
- *
- * console.log 'helloMessage' to check your work
- */
-var helloMessage = sayHello("James");
-console.log(helloMessage);
-/**
- * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-var myName = "James";
-console.log(sayHello(myName));
+{
+  var myName = "James";
+  console.log(sayHello(myName));
+}
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
 
 /**
- * TODO:
  * Create a function called 'isTwo' that takes a number as a parameter.
  * The function should return a boolean value based on whether or not the passed
  * number is the number 2.
@@ -71,7 +60,6 @@ function isTwo(input){
 console.log("isTwo(" + random + "):\t" + isTwo(random));
 
 /**
- * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
  * restaurant. The function should accept a tip percentage and the total of the
  * bill, and return the amount to tip
@@ -91,29 +79,33 @@ function calculateTip(percent, total){
   return total * percent;
 }
 
-var tip = 0.20;
-var total = 20;
-console.log("Tip percent: " + tip + "\tTotal: $" + total + "\t" + calculateTip(tip, total));
-tip = 0.25;
-total = 25.50;
-console.log("Tip percent: " + tip + "\tTotal: $" + total + "\t" + calculateTip(tip, total));
-tip = 0.15;
-total = 33.42;
-console.log("Tip percent: " + tip + "\tTotal: $" + total + "\t" + calculateTip(tip, total));
-tip = 50;
-total = 32.16;
-console.log("Tip percent: " + tip + "\tTotal: $" + total + "\t" + calculateTip(tip, total));
+{
+  var tip = 0.20;
+  var total = 20;
+  console.log("Tip percent: " + tip + "\tTotal: $" + total + "\t" + calculateTip(tip, total));
+  tip = 0.25;
+  total = 25.50;
+  console.log("Tip percent: " + tip + "\tTotal: $" + total + "\t" + calculateTip(tip, total));
+  tip = 0.15;
+  total = 33.42;
+  console.log("Tip percent: " + tip + "\tTotal: $" + total + "\t" + calculateTip(tip, total));
+  tip = 50;
+  total = 32.16;
+  console.log("Tip percent: " + tip + "\tTotal: $" + total + "\t" + calculateTip(tip, total));
+}
 /**
- * TODO:
  * Use prompt and alert in combination with your calculateTip function to
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-total = prompt("Enter the total");
-tip = prompt("Enter the tip amout as a percent or decimal");
-console.log("Tip percent: " + tip + "\tTotal: $" + total + "\t" + calculateTip(tip, total));
+{
+  var total = prompt("You're at a restaurant and you've received the bill.\nPlease enter the total");
+  var tip = prompt("Enter the tip amout as a percent or decimal");
+  tip = calculateTip(tip, total);
+  alert("The tip amount is $" + tip.toFixed(2));
+  console.log("Tip percent: " + tip.toFixed(2) + "\tTotal: $" + total.toFixed(2) + "\t" + calculateTip(tip, total));
+}
 /**
- * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
  * (before a discount is applied), and a discount percentage (a number between 0
  * and 1). It should return the result of applying the discount to the original
