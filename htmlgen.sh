@@ -20,5 +20,6 @@ echo "<!DOCTYPE html>\n"\
 "\t\t</main>\n"\
 "\t\t<footer>\n"\
 "\t\t</footer>\n"\
+"\t\t<script></script>"
 "\t</body>\n"\
 "</html>" | sed 's/[\t]/    /g' > "$1"
