@@ -25,33 +25,101 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<div id="btn-group">
+  <button id="btn-1">Change header to: "Javascript is Cool"</button>
+  <button id="btn-2">Change sub-header's color to blue</button>
+  <button id="btn-3">Make every other list item grey</button>
+  <button id="btn-4">Make the dbid of 1 blue</button>
+</div>
+
 <script>
-    (function() {
-        "use strict";
-        console.log("Running...");
+    function changeHeader(){
+      var mainHeader = document.getElementById('main-header');
+      mainHeader.innerHTML = "JavaScript is Cool";
+    }
 
-        var mainHeader = document.getElementById('main-header');
-        mainHeader.innerHTML = "JavaScript is Cool";
+    function changeSubHeader(){
+      var subHeader = document.getElementById('sub-header');
+      subHeader.setAttribute("style", "color: blue");
+    }
 
-        var subHeader = document.getElementById('sub-header');
-        subHeader.setAttribute("style", "color: blue");
+    function changeListItems(){
+      var listItems = document.getElementsByTagName("li");
 
-        var listItems = document.getElementsByTagName("li");
+      for(var i = 0; i < listItems.length; i+=2){
+        listItems[i].setAttribute("style", "color: grey");
+      }
+    }
 
-        for(var i = 0; i < listItems.length; i+=2){
-          listItems[i].setAttribute("style", "color: grey");
+    function changeListStyle(){
+      var listItems = document.getElementsByTagName("li");
+
+      for(var i = 0; i < listItems.length; i++){
+        var dbid = listItems[i].getAttribute("data-dbid");
+        if(dbid == 1){
+          listItems[i].setAttribute("style", "color: blue");
         }
+      }
+    }
 
-        for(var i = 0; i < listItems.length; i++){
-          var dbid = listItems[i].getAttribute("data-dbid");
-          if(dbid == 1){
-            listItems[i].setAttribute("style", "color: blue");
-          }
-        }
+    function finish(){
+      var subParagraphs = document.getElementsByClassName("sub-paragraph");
+      subParagraphs[0].innerHTML = "Mission Accomplished!";
+    }
 
-        var subParagraphs = document.getElementsByClassName("sub-paragraph");
-        subParagraphs[0].innerHTML = "Mission Accomplished!";
-    })();
+    // javascriptish singleton constructor
+    function newRecord(){
+      if(window.record && window.record != null) {
+        return window.record;
+      }
+      var record = {
+        clicked1: false,
+        clicked2: false,
+        clicked3: false,
+        clicked4: false,
+      }
+      return window.record = record;
+    }
+
+    var listener = function(event){
+      record == window.record;
+      const source = event.explicitOriginalTarget;
+
+      switch(source){
+        case buttons[0]:
+          record.clicked1 = true;
+          changeHeader();
+          break;
+        case buttons[1]:
+          record.clicked2 = true;
+          changeSubHeader();
+          break;
+        case buttons[2]:
+          record.clicked3 = true;
+          changeListItems();
+          break;
+        case buttons[3]:
+          record.clicked4 = true;
+          changeListStyle();
+          break;
+      }
+
+      if(record.clicked1 && record.clicked2 &&
+          record.clicked3 && record.clicked4) {
+        finish();
+      }
+    }
+
+    buttons = [];
+    // init buttons
+    {
+      for(var i = 0; i < 4; i++){
+        buttons[i] = document.getElementById("btn-" + (i + 1));
+        buttons[i].addEventListener("click", listener, false);
+      }
+    }
+    // init record
+    clicks = newRecord();
 </script>
 </body>
 </html>
