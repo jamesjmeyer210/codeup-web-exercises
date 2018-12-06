@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=divice-width, user-scalable=no, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatable" content="ie=edge">
+        <style>
+          /* Always set the map height explicitly to define the size of the div
+           * element that contains the map. */
+          #map-canvas {
+            height: 100%;
+          }
+          /* Optional: Makes the sample page fill the window. */
+          html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+        </style>
+    </head>
+
+    <!--
+      3. Generate a map that shows the city with your favorite restaurant using geocoding.
+      4. Redraw the map of the above location at zoom levels 5, 15, and 20.
+      5. Create a marker on your map of the exact location of your favorite restaurant and adjust the zoom to allow for best viewing distance.
+      6. Create an info window with the name of the restaurant.
+      7. Zoom in and verify that you have identified the correct location. Double check it against
+
+      Bonus:
+
+      - Info windows can contain basic HTML, not just plain text. Add some
+        addition information about your restaurant to the info window such as
+        why it is your favorite, dishes you like, etc.
+      - Research Google Maps Events. Make sure the info window does not display
+        until the marker has been clicked on.
+      - Add a drop animation to the marker when the page first loads.
+      - Refactor your code to display at least three favorite restaurants with
+        information about each. You should create an array of objects with
+        information about each restaurant to accomplish this. You will most
+        likely need to use a .forEach() loop rather than a for.
+      - Replace the generic marker icon with an image that is more appropriate
+        for each restaurant.
+    -->
+    <body>
+      <div id="map-canvas"></div>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy_BsiT70iCdUBB-ig40j4XdCYg_lBu_Y"></script>
+      <script type="text/javascript">
+        "use strict";
+
+        function initMap(id) {
+          return new google.maps.Map(document.getElementById(id), {
+            center: {lat: 29.426791, lng: -98.489602},
+            zoom: 8
+          });
+        }
+
+        function initMarker(map, lat, lng){
+          return new google.maps.Marker({
+            position: {lat, lng},
+            map: map,
+          });
+        }
+
+        var map = initMap("map-canvas");
+        var codeupMarker = initMarker(map, 29.426791, -98.489602);;
+
+        // Create a new infoWindow object with content
+        var infowindow = new google.maps.InfoWindow({
+            content: "Changing the world, one programmer at a time."
+        });
+
+        // Open the window using our map and marker
+        infowindow.open(map, codeupMarker);
+
+        var addresses = [];
+        addresses[0] = "21103 US Hwy 281 N, San Antonio, TX 78258";
+        addresses[1] = "18318 Sonterra Pl, San Antonio, TX 78258";
+        addresses[2] = "123 Brackenridge Ave, San Antonio, TX 78209";
+
+        // var geocoder = new google.maps.Geocoder();
+        // geocoder.geocode({"addresss": addresses[0]}, function(results, status){
+        //   if(status == google.maps.GeocoderStatus.OK){
+        //     map.setCenter(results[0].geometry.location);
+        //   }
+        //   else {
+        //     alert("Geocoding was not successful - STATUS: " + status);
+        //   }
+        // });
+      </script>
+    </body>
+</html>
