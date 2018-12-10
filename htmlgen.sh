@@ -20,6 +20,7 @@ echo "<!DOCTYPE html>\n"\
 "\t\t</main>\n"\
 "\t\t<footer>\n"\
 "\t\t</footer>\n"\
+"\t\t<script src=\"node_modules/jquery/dist/jquery.js\"></script>\n"\
 "\t\t<script></script>\n"\
 "\t</body>\n"\
 "</html>" | sed 's/[\t]/    /g' > "$1"
