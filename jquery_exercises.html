@@ -19,6 +19,9 @@
             max-width: 1200px;
             display: grid;
           }
+          .bkg-grey {
+            background-color: #969696;
+          }
         </style>
     </head>
     <body>
@@ -40,15 +43,15 @@
             </article>
             <article>
               <ul id="one-to-ten">
-                <li id="rome-01">I</li>
+                <li id="rome-01" class="bkg-grey">I</li>
                 <li id="rome-02">II</li>
-                <li id="rome-03">III</li>
+                <li id="rome-03" class="bkg-grey">III</li>
                 <li id="rome-04">IV</li>
-                <li id="rome-05">V</li>
+                <li id="rome-05" class="bkg-grey">V</li>
                 <li id="rome-06">VI</li>
-                <li id="rome-07">VII</li>
+                <li id="rome-07" class="bkg-grey">VII</li>
                 <li id="rome-08">VIII</li>
-                <li id="rome-09">IX</li>
+                <li id="rome-09" class="bkg-grey">IX</li>
                 <li id="rome-10">X</li>
               </ul>
             </article>
@@ -61,83 +64,23 @@
       <script>
         "use strict";
 
-        // $(document).ready(function(){
-        //   alert("The DOM has finished loading.");
-        // });
+        $("h1").click(function(){
+          $(this).css("background-color", "yellow");
+        });
 
-        /*
-        Id Selectors
+        $("p").dblclick(function(){
+          $(this).css("font-size", "18px");
+        });
 
-          COMPLETE: Create content in your HTML file using at least the following elements: h1, p, ul, li, div.
+        $("li").hover(
 
-          COMPLETE: Add several attributes to your elements; you will need both id and class attributes.
-
-          COMPLETE: Use jQuery to select an element by the id. Alert the contents of the element.
-        */
-        var numbers = $("#one-to-ten").html();
-        {
-          var temp = numbers.split("\n");
-          var parsed = "";
-
-          temp.forEach(function(elem){
-            elem = elem.substring(elem.indexOf('>') + 1, elem.length);
-            elem = elem.substring(0, elem.indexOf('<'));
-
-            parsed += elem + '\n';
-          });
-
-          numbers = parsed;
-        }
-        alert("The Roman numerals, one to ten:\n" + numbers);
-        /*
-          Update the jQuery code to select and alert a different id.
-        */
-        {
-          var select = $("#rome-01").html();
-          alert(select);
-        }
-        /*
-          Use the same id on 2 elements. How does this change the jQuery selection?
-        */
-        {
-          var select = $("#rome-01");
-          console.log(select);
-        }
-        /*
-          Remove the duplicate id. Each id should be unique on that page.
-        */
-        {
-          var select = $("#rome-01");
-          console.log(select);
-        }
-        /*
-      Class Selectors
-
-          Remove your custom jQuery code from previous exercises.
-
-          Update your code so that at least 3 different elements have the same class named codeup.
-
-          Using jQuery, create a border around all elements with the class codeup that is 1 pixel wide and red.
-
-          Remove the class from one of the elements. Refresh and test that the border has been removed.
-
-          Give another element an id of codeup. Does this element get a border now?
-
-      Element Selectors
-
-          Remove your custom jQuery code from previous exercises.
-
-          Using jQuery, set the font-size of all li elements to 20px.
-
-          Craft selectors that highlight all the h1, p, and li elements.
-
-          Create a jQuery statement to alert the contents of your h1 element(s).
-
-      Multiple Selectors
-
-          Combine your selectors that highlight all the h1, p, and li elements.
-
-      */
+          function(){
+            $(this).css("color", "red");
+          },
+          function(){
+            $(this).css("color", "black");
+          }
+      );
       </script>
     </body>
 </html>
