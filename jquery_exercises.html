@@ -5,22 +5,125 @@
         <meta name="viewport"
             content="width=divice-width, user-scalable=no, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatable" content="ie=edge">
-        <style></style>
+        <style>
+          * {
+            box-sizing: border-box;
+          }
+          body {
+            font-family: "Noto Mono";
+            color: #1a1a1a;
+          }
+          .container {
+            margin: 0 auto;
+            width: 60%;
+            max-width: 1200px;
+            display: grid;
+          }
+        </style>
     </head>
     <body>
         <header>
+          <h1>Salve Orbis Terrarum!</h1>
         </header>
-        <main>
-        </main>
+        <div class="container">
+          <main>
+            <article>
+              <p>Et tulit semel classem Latinam in schola. Ut exsisto pia, non memini
+              prope nihil. Certis tantum unum sententia, quod sit plane vacuum,
+              "laborat in foro Blaeu". Quod est opus pigmentarii fori. Etiam hanc
+              translationem progressio non vera mihi mea translata est in falsa
+              latine translata.</p>
+              <p>Multo facilius puto esse, si esset lingua classes habebamus aliquid
+              ex sermone compilers. Exempli gratia, nihil refert ad programming
+              lingua uti, ut instant semper in feedback quid rectum et quid agam
+              et ego sum facis iniuriam. A bonus monitis compiler includit commendat.</p>
+            </article>
+            <article>
+              <ul id="one-to-ten">
+                <li id="rome-01">I</li>
+                <li id="rome-02">II</li>
+                <li id="rome-03">III</li>
+                <li id="rome-04">IV</li>
+                <li id="rome-05">V</li>
+                <li id="rome-06">VI</li>
+                <li id="rome-07">VII</li>
+                <li id="rome-08">VIII</li>
+                <li id="rome-09">IX</li>
+                <li id="rome-10">X</li>
+              </ul>
+            </article>
+          </main>
+        </div>
         <footer>
         </footer>
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script>
-          "use strict";
 
-          $(document).ready(function(){
-            alert("The DOM has finished loading.");
+      <script src="node_modules/jquery/dist/jquery.js"></script>
+      <script>
+        "use strict";
+
+        // $(document).ready(function(){
+        //   alert("The DOM has finished loading.");
+        // });
+
+        /*
+        Id Selectors
+
+          COMPLETE: Create content in your HTML file using at least the following elements: h1, p, ul, li, div.
+
+          COMPLETE: Add several attributes to your elements; you will need both id and class attributes.
+
+          COMPLETE: Use jQuery to select an element by the id. Alert the contents of the element.
+        */
+        var numbers = $("#one-to-ten").html();
+        console.log(typeof(numbers))
+        {
+          var temp = numbers.split("\n");
+          var parsed = "";
+
+          temp.forEach(function(elem){
+            elem = elem.substring(elem.indexOf('>') + 1, elem.length);
+            elem = elem.substring(0, elem.indexOf('<'));
+
+            parsed += elem + '\n';
           });
-        </script>
+
+          numbers = parsed;
+        }
+        alert("The Roman numerals, one to ten:\n" + numbers);
+        /*
+          Update the jQuery code to select and alert a different id.
+
+          Use the same id on 2 elements. How does this change the jQuery selection?
+
+          Remove the duplicate id. Each id should be unique on that page.
+
+      Class Selectors
+
+          Remove your custom jQuery code from previous exercises.
+
+          Update your code so that at least 3 different elements have the same class named codeup.
+
+          Using jQuery, create a border around all elements with the class codeup that is 1 pixel wide and red.
+
+          Remove the class from one of the elements. Refresh and test that the border has been removed.
+
+          Give another element an id of codeup. Does this element get a border now?
+
+      Element Selectors
+
+          Remove your custom jQuery code from previous exercises.
+
+          Using jQuery, set the font-size of all li elements to 20px.
+
+          Craft selectors that highlight all the h1, p, and li elements.
+
+          Create a jQuery statement to alert the contents of your h1 element(s).
+
+      Multiple Selectors
+
+          Combine your selectors that highlight all the h1, p, and li elements.
+
+      */
+      </script>
     </body>
 </html>
