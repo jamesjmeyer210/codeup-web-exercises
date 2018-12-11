@@ -75,7 +75,6 @@
           COMPLETE: Use jQuery to select an element by the id. Alert the contents of the element.
         */
         var numbers = $("#one-to-ten").html();
-        console.log(typeof(numbers))
         {
           var temp = numbers.split("\n");
           var parsed = "";
@@ -92,11 +91,26 @@
         alert("The Roman numerals, one to ten:\n" + numbers);
         /*
           Update the jQuery code to select and alert a different id.
-
+        */
+        {
+          var select = $("#rome-01").html();
+          alert(select);
+        }
+        /*
           Use the same id on 2 elements. How does this change the jQuery selection?
-
+        */
+        {
+          var select = $("#rome-01");
+          console.log(select);
+        }
+        /*
           Remove the duplicate id. Each id should be unique on that page.
-
+        */
+        {
+          var select = $("#rome-01");
+          console.log(select);
+        }
+        /*
       Class Selectors
 
           Remove your custom jQuery code from previous exercises.
