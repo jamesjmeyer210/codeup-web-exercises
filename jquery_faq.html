@@ -56,7 +56,7 @@
           <div id="funky-button" class="btn">
             Funky Button
           </div>
-          
+
           <h3>National Park 1</h3>
           <ul>
             <li>Fact 1</li>
@@ -111,12 +111,17 @@
           When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
           */
           $("h3").click(function(){
-            console.log($(this).parent());
-            $(this).parent().css("font-weight", "bold");
+            $(this).next().children().css("font-weight", "bold");
           });
           /*
           When any list item is clicked, first li of the parent ul should have a font color of blue.
           */
+          $("li").click(function(){
+            $("ul").each(function(){
+              $(this).children().first().css("color","blue");
+            });
+          });
+
         </script>
     </body>
 </html>
