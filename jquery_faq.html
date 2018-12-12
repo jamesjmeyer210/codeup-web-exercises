@@ -15,7 +15,7 @@
           dl {
             margin: 5px;
           }
-          .toggle {
+          .btn {
             height: 32px;
             width: 86px;
             padding: 8px;
@@ -33,7 +33,7 @@
         <header>
         </header>
         <main>
-          <div id="toggle" class="toggle">
+          <div id="toggle" class="btn">
             Toggle
           </div>
           <dl>
@@ -48,6 +48,40 @@
             <dt>Q: Which of these mushrooms are edible?</dt>
             <dd class="hide">A: All of them.</dd>
           </dl>
+
+          <div id="funky-button" class="btn">
+            Funky Button
+          </div>
+
+          <ul>
+            <li>
+              <h3>National Park 1</h3>
+              <ul>
+                <li>Fact 1</li>
+                <li>Fact 2</li>
+                <li>Fact 3</li>
+                <li>Fact 4</li>
+              </ul>
+            </li>
+            <li>
+              <h3>National Park 2</h3>
+              <ul>
+                <li>Fact 1</li>
+                <li>Fact 2</li>
+                <li>Fact 3</li>
+                <li>Fact 4</li>
+              </ul>
+            </li>
+            <li>
+              <h3>National Park 3</h3>
+              <ul>
+                <li>Fact 1</li>
+                <li>Fact 2</li>
+                <li>Fact 3</li>
+                <li>Fact 4</li>
+              </ul>
+            </li>
+          </ul>
         </main>
         <footer>
         </footer>
@@ -65,6 +99,26 @@
               hidden = true;
             }
           });
+
+          /*
+          Create a button that, when clicked, makes the last li in each ul have a yellow background.
+          */
+          $("#funky-button").click(function(){
+            $("ul").each(function(){
+              var sublists = $(this).children().last().css("background-color", "yellow");
+            });
+          });
+
+          /*
+          When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
+          */
+          $("h3").click(function(){
+            console.log($(this).parent());
+            $(this).parent().css("font-weight", "bold");
+          });
+          /*
+          When any list item is clicked, first li of the parent ul should have a font color of blue.
+          */
         </script>
     </body>
 </html>
