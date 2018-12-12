@@ -13,11 +13,9 @@
             border: 2px solid black;
             text-align: center;
           }
-          .dd {
+
+          .hide {
             display: none;
-          }
-          .dt {
-            display: contents;
           }
         </style>
     </head>
@@ -27,29 +25,19 @@
         <main>
           <div id="toggle" class="toggle">
             Toggle
-          <div>
-          <ul>
-            <li class="dd">
-              <p>Q: When is Yellowstone going to explode?</p>
-              <p>A: We're not sure.</p>
-            </li>
-            <li class="dd">
-              <p>Q: What is the most deadly national park?</p>
-              <p>A: Lake Mead National Recreation Area</p>
-            </li>
-            <li class="dd">
-              <p>Q: Which national park has lions, tigers and bears?</p>
-              <p>A: Texas</p>
-            </li>
-            <li class="dd">
-              <p>Q: Can I hand feed the wolves?</p>
-              <p>A: Go ahead!</p>
-            </li>
-            <li class="dd">
-              <p>Q: Which of these mushrooms are edible?</p>
-              <p>A: All of them.</p>
-            </li>
-          </ul>
+          </div>
+          <dl>
+            <dt>Q: When is Yellowstone going to explode?</dl>
+            <dd class="hide">A: We're not sure.</dd>
+            <dt>Q: What is the most deadly national park?</dt>
+            <dd class="hide">A: Lake Mead National Recreation Area</dd>
+            <dt>Q: Which national park has lions, tigers and bears?</dt>
+            <dd class="hide">A: Texas</dd>
+            <dt>Q: Can I hand feed the wolves?</dt>
+            <dd class="hide">A: Go ahead!</dd>
+            <dt>Q: Which of these mushrooms are edible?</dt>
+            <dd class="hide">A: All of them.</dd>
+          </dl>
         </main>
         <footer>
         </footer>
@@ -58,13 +46,12 @@
           var hidden = true;
 
           $("#toggle").click(function(){
-            console.log($(this));
             if(hidden){
-              $("li").removeClass("dd");
+              $("dd").removeClass("hide");
               hidden = false;
             }
             else{
-              $("li").addClass("dd");
+              $("dd").addClass("hide");
               hidden = true;
             }
           });
