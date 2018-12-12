@@ -30,8 +30,6 @@
         </style>
     </head>
     <body>
-        <header>
-        </header>
         <main>
           <div>
             <h1>Would you like to sign up for our newsletter?<span>X</span><h1>
@@ -81,8 +79,7 @@
             <li>Fact 4</li>
           </ul>
         </main>
-        <footer>
-        </footer>
+
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script>
           var hidden = true;
@@ -106,7 +103,6 @@
               var sublists = $(this).children().last().css("background-color", "yellow");
             });
           });
-
           /*
           When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this.
           */
@@ -121,7 +117,6 @@
               $(this).children().first().css("color","blue");
             });
           });
-
         </script>
     </body>
 </html>
