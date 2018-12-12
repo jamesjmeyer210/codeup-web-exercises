@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=divice-width, user-scalable=no, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatable" content="ie=edge">
+        <style>
+          * {
+            box-sizing: border-box;
+          }
+          .container {
+            margin: 0 auto;
+            width: 100%;
+            /*max-width: 1200px*/;
+            display: grid;
+          }
+          .row {
+            width: 100%;
+            height: 16px;
+          }
+          .column {
+            height: 16px;
+            float: left;
+            /*padding: 10px;*/
+          }
+          .column.col-01 {
+            width: 16px;
+          }
+          .column:hover {
+            transform: scale(1.25);
+          }
+        </style>
+    </head>
+    <body>
+        <div id="region"></div>
+
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script>
+          "use strict";
+          console.log("Running...");
+
+          function Rgb() {
+
+            this.a = Math.floor(Math.random() * 1000) % 256,
+            this.b = Math.floor(Math.random() * 1000) % 256,
+            this.c = Math.floor(Math.random() * 1000) % 256,
+            this.toString = function(){
+              return "rgb(" + this.a + "," + this.b + "," + this.c +")";
+            }
+
+          }
+
+          function execKonami(){
+            var render;
+
+            for(var i = 0; i < 32; i++){
+              render = "";
+              render += "<div class=\"row\">";
+
+              var localRgb = {};
+
+                for(var j = 0; j < 86; j++){
+
+                  localRgb = new Rgb();
+                  console.assert(localRgb !== undefined);
+
+                  render += "<div id=" +
+                    "\"col-" + i + "x" + j
+                    + "\" class=\"column col-01\""
+                    + "style=\"background-color: "+ localRgb.toString()+";"
+                    + "\"></div>";
+                }
+              render += "</div>";
+              $("#region").append(render);
+            }
+
+          };
+
+          const keyLeft = 37;
+          const keyRight = 39;
+          const keyUp = 38;
+          const keyDown = 40;
+          const keyLowA = 65;
+          const keyLowB = 66;
+
+          const konami = [
+            keyUp,
+            keyUp,
+            keyDown,
+            keyDown,
+            keyLeft,
+            keyRight,
+            keyLeft,
+            keyRight,
+            keyLowA,
+            keyLowB,
+          ];
+          var keyStack = [];
+
+          $(document).keyup(function(event){
+            keyStack.push(event.keyCode);
+            if(keyStack.length == konami.length){
+
+              var i = 0;
+              keyStack.forEach(function(key){
+                if(key === konami[i]){
+                  i++;
+                }
+              });
+              if(i == konami.length){
+                execKonami();
+              }
+              keyStack = [];
+            }
+          });
+
+        </script>
+    </body>
+</html>
