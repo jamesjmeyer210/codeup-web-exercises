@@ -20,7 +20,7 @@
             width: 86px;
             padding: 8px;
             border-radius: 8px;
-            background-color: blue;
+            background-color: #D7C8D9;
             border: 2px solid black;
             text-align: center;
           }
@@ -32,12 +32,18 @@
     <body>
         <main>
           <div>
-            <h1>Would you like to sign up for our newsletter?<span>X</span><h1>
+            <h1>Would you like to sign up for our newsletter?<span class="btn">X</span><h1>
           </div>
 
           <div id="toggle" class="btn">
             Toggle
           </div>
+
+          <div class="hide">
+            <h1>Would you like to register at this highly informative site?</h1>
+            <div class="btn">Yes</div>
+          </div>
+
           <dl>
             <dt>Q: When is Yellowstone going to explode?</dt>
             <dd class="hide">A: We're not sure.</dd>
@@ -56,7 +62,7 @@
           </div>
 
           <h3>National Park 1</h3>
-          <ul>
+          <ul class="hide">
             <li>Fact 1</li>
             <li>Fact 2</li>
             <li>Fact 3</li>
@@ -64,7 +70,7 @@
           </ul>
 
           <h3>National Park 2</h3>
-          <ul>
+          <ul class="hide">
             <li>Fact 1</li>
             <li>Fact 2</li>
             <li>Fact 3</li>
@@ -72,7 +78,7 @@
           </ul>
 
           <h3>National Park 3</h3>
-          <ul>
+          <ul class="hide">
             <li>Fact 1</li>
             <li>Fact 2</li>
             <li>Fact 3</li>
@@ -117,6 +123,25 @@
               $(this).children().first().css("color","blue");
             });
           });
+          /*
+          At the top of the page, add a div with two elements, an h1 that reads "Would you like to sign up for our newsletter?" and a span that has an 'x' in it. When the 'x' is clicked, hide the entire div element.
+          */
+          $("span.btn").click(function(){
+            $(this).parent().parent().css("display", "none");
+          });
+          /*
+          The uls next to each h3 that contain facts about each park should start out hidden, and when the corresponding h3 is clicked, the display of the ul should be toggled with a sliding effect.
+          */
+          $("h3").click(function(){
+            $(this).next().slideDown(500);
+          });
+          /*
+          After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site
+          */
+          setTimeout(function(){
+            $("div.hide").fadeIn(8000);
+          }, 8000);
+
         </script>
     </body>
 </html>
