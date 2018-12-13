@@ -12,21 +12,26 @@
         </header>
         <main id="posts" class="container">
           <article>
-            <div class="row-86">
+            <div class="blog-title row-86">
               <div class="column col-10"></div>
               <div class="column col-80">
                 <h3>Title</h3>
               </div>
               <div class="column col-10"></div>
             </div>
-            <div class="row-86">
+            <div class="blog-tags row-32">
               <div class="column col-10" style="background-color: grey"></div>
               <div class="column col-80">
                 category A, category B, category C, category D,
               </div>
               <div class="column col-10"></div>
             </div>
-            <div class="row">
+            <div class="blog-date row-32">
+              <div class="column col-10"></div>
+              <div class="column col-80">01/01/2018</div>
+              <div class="column col-10"></div>
+            </div>
+            <div class="blog-content row-512">
               <div class="column col-10"></div>
               <div class="column col-80">
                 <p>This is where the text of each article ought to go. So, we'll use
@@ -63,15 +68,22 @@
           /*
           TODO: Use ajax to load the contents of blog.json and add the data from it to your #posts div.
           */
+          function jsonToBlog(array){
+            array.forEach(function(elem){
+              console.log(elem.title);
+              console.log(elem.categories.join(" "));
+              console.log(elem.content);
+              console.log(elem.date);
+            });
+          }
+
           $.ajax({
               url: "data/blog.json",
               type: "GET",
             }).done(function(data, status){
               console.log(status);
               //console.log(data);
-              data.forEach(function(elem){
-                console.log(elem);
-              });
+              jsonToBlog(data);
           });
           /*
           TODO: Add additional entries to blog.json and make sure your changes are reflected on the page.
