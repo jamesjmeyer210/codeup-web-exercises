@@ -20,7 +20,7 @@
               <div class="column col-10"></div>
             </div>
             <div class="blog-tags row-32">
-              <div class="column col-10" style="background-color: grey"></div>
+              <div class="column col-10"></div>
               <div class="column col-80">
                 category A, category B, category C, category D,
               </div>
@@ -31,7 +31,7 @@
               <div class="column col-80">01/01/2018</div>
               <div class="column col-10"></div>
             </div>
-            <div class="blog-content row-512">
+            <div class="blog-content row-256">
               <div class="column col-10"></div>
               <div class="column col-80">
                 <p>This is where the text of each article ought to go. So, we'll use
@@ -69,11 +69,48 @@
           TODO: Use ajax to load the contents of blog.json and add the data from it to your #posts div.
           */
           function jsonToBlog(array){
+            var strTitle = "";
+            var strCategories = "";
+            var strDate = "";
+            var strContent = "";
+
             array.forEach(function(elem){
-              console.log(elem.title);
-              console.log(elem.categories.join(" "));
               console.log(elem.content);
-              console.log(elem.date);
+              strTitle +=
+              "<div class=\"blog-title row-86\">" +
+                "<div class=\"column col-10\"></div>" +
+                "<div class=\"column col-80\">" +
+                  "<h3>" + elem.title + "</h3>" +
+                "</div>" +
+                "<div class=\"column col-10\"></div>" +
+              "</div>";
+              strCategories +=
+              "<div class=\"blog-tags row-32\">" +
+                "<div class=\"column col-10\"></div>" +
+                "<div class=\"column col-80\">" +
+                  elem.categories.join(" ") +
+                "</div>" +
+                "<div class=\"column col-10\"></div>" +
+              "</div>";
+              strDate +=
+              "<div class=\"blog-date row-32\">"
+                "<div class=\"column col-10\"></div>"
+                "<div class=\"column col-80\">" + elem.date + "</div>"
+                "<div class=\"column col-10\"></div>"
+              "</div>"
+              strContent +=
+              "<div class=\"blog-content row-256\">" +
+                "<div class=\"column col-10\"></div>" +
+                "<div class=\"column col-80\">" +
+                  elem.content +
+                "</div>" +
+                "<div class=\"column col-10\"></div>" +
+              "</div>";
+              $("article").append(strTitle + strCategories + strDate + strContent);
+              strTitle = "";
+              strCategories = "";
+              strDate = "";
+              strCategories = "";
             });
           }
 
