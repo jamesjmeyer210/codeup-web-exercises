@@ -10,22 +10,34 @@
     <body>
         <header>
         </header>
-        <main class="container">
+        <main id="posts" class="container">
           <article>
-            <div class="column col-20"></div>
-            <div class="column col-80">
-              <h3>Title</h3>
+            <div class="row-86">
+              <div class="column col-10"></div>
+              <div class="column col-80">
+                <h3>Title</h3>
+              </div>
+              <div class="column col-10"></div>
             </div>
-            <div class="column col-10"></div>
-            <div class="column col-80">
-              <p>This is where the text of each article ought to go. So, we'll use
-              this template as an example and see where we can go from here.
-              Don't forget to use paragraph tags to seperate everything. I'll
-              probably also want to generate a bunch of text... so I'll need to
-              get my own lorem ipsum thing going on. That all seems pretty
-              straight forward.</p>
+            <div class="row-86">
+              <div class="column col-10" style="background-color: grey"></div>
+              <div class="column col-80">
+                category A, category B, category C, category D,
+              </div>
+              <div class="column col-10"></div>
             </div>
-            <div class="column col-10"></div>
+            <div class="row">
+              <div class="column col-10"></div>
+              <div class="column col-80">
+                <p>This is where the text of each article ought to go. So, we'll use
+                this template as an example and see where we can go from here.
+                Don't forget to use paragraph tags to seperate everything. I'll
+                probably also want to generate a bunch of text... so I'll need to
+                get my own lorem ipsum thing going on. That all seems pretty
+                straight forward.</p>
+              </div>
+              <div class="column col-10"></div>
+            </div>
           </article>
         </main>
         <footer>
@@ -45,8 +57,23 @@
           */
 
           /*
-          TODO: Download blog.json to your data directory from before.
+          COMPLETE: Download blog.json to your data directory from before.
+          */
+
+          /*
           TODO: Use ajax to load the contents of blog.json and add the data from it to your #posts div.
+          */
+          $.ajax({
+              url: "data/blog.json",
+              type: "GET",
+            }).done(function(data, status){
+              console.log(status);
+              //console.log(data);
+              data.forEach(function(elem){
+                console.log(elem);
+              });
+          });
+          /*
           TODO: Add additional entries to blog.json and make sure your changes are reflected on the page.
           */
         </script>
