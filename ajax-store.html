@@ -7,70 +7,71 @@
     <meta http-equiv="X-UA-Compatable" content="ie=edge">
     <title>Online Store</title>
     <style>
-      .table-header {
+      body {
+        font-family: "monospace";
+        background: #F9F5FB;
+      }
+      td, th {
+        padding: 8px;
         border: 1px solid black;
-        padding: 4px;
+      }
+      h1 {
+        margin: 8px;
+      }
+      .table-header {
+        background-color: #D8C9DC;
       }
     </style>
 </head>
 <body>
+  <h1>My Tool Store</h1>
+  <table id="products">
+      <thead>
+          <tr>
+              <th class="table-header">Title</th>
+              <th class="table-header">Quantity</th>
+              <th class="table-header">Price</th>
+              <th class="table-header">Categories</th>
+          </tr>
+      </thead>
+      <tbody id="insertProducts"></tbody>
+  </table>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+  (function() {
+      "use strict";
 
-<h1>My Tool Store</h1>
+      function jsonToTable(array){
+        // make a row as a string
+        var row = "";
+        array.forEach(function(elem){
+          // for each element in the array, turn the elem into a row by
+          // concatonating each varaible of the elem as a string memember
+          row += "<tr>";
+          row += "<td>" + elem.title + "</td>";
+          row += "<td>" + elem.quantity + "</td>";
+          row += "<td>" + "$" + elem.price + "</td>";
+          row += "<td>" + elem.categories.join(",") + "</td>";
+          row += "</tr>"
+          $("#insertProducts").append(row);
+          row = "";
+        });
+      }
 
-<table id="products">
-    <thead>
-        <tr class="table-header" style="background-color: grey">
-            <th class="table-header">Title</th>
-            <th class="table-header">Quantity</th>
-            <th class="table-header">Price</th>
-            <th class="table-header">Categories</th>
-            <!-- <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th> -->
-        </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-</table>
+      // COMPLETE: Create an ajax GET request for /data/inventory.json
+      console.log("Sending ajax request.");
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-<script>
-(function() {
-    "use strict";
-
-    // COMPLETE: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
-    function jsonToTable(array){
-      var row = "";
-      array.forEach(function(elem){
-        console.log(elem);
-        row += "<tr>";
-        row += "<th>" + elem.title + "</th>";
-        row += "<th>" + elem.quantity + "</th>";
-        row += "<th>" + elem.categories.length + "</th>";
-        row += "<th>" + elem.price + "</th>";
-        row += "</tr>"
-        $("#insertProducts").append(row);
-        row = "";
+      // request happens here
+      $.ajax({
+          url: "data/inventory.json",
+          type: "GET",
+        }).done(function(data, status){
+          console.log(status);
+          jsonToTable(data);
       });
-    }
 
-    // COMPLETE: Create an ajax GET request for /data/inventory.json
-    console.log("Sending ajax request.");
-
-    $.ajax({
-        url: "data/inventory.json",
-        type: "GET",
-      }).done(function(data, status){
-        console.log(status);
-        jsonToTable(data);
-    });
-
-})();
-</script>
+  })();
+  </script>
 
 </body>
 </html>
