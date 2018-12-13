@@ -6,7 +6,12 @@
         content="width=divice-width, user-scalable=no, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatable" content="ie=edge">
     <title>Online Store</title>
-    <style></style>
+    <style>
+      .table-header {
+        border: 1px solid black;
+        padding: 4px;
+      }
+    </style>
 </head>
 <body>
 
@@ -14,11 +19,15 @@
 
 <table id="products">
     <thead>
-        <tr>
-            <th>Title</th>
+        <tr class="table-header" style="background-color: grey">
+            <th class="table-header">Title</th>
+            <th class="table-header">Quantity</th>
+            <th class="table-header">Price</th>
+            <th class="table-header">Categories</th>
+            <!-- <th>Title</th>
             <th>Quantity</th>
             <th>Price</th>
-            <th>Categories</th>
+            <th>Categories</th> -->
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
@@ -29,20 +38,37 @@
 <script>
 (function() {
     "use strict";
-    // TODO: Create an ajax GET request for /data/inventory.json
-    console.log("Sending ajax request.");
-    $.ajax({
-        url: "data/inventory.js",
-        type: "GET",
-      }).done(function(data, status){
-        console.log(status);
-        console.log(data);
-    });
 
-    // TODO: Take the data from inventory.json and append it to the products table
+    // COMPLETE: Take the data from inventory.json and append it to the products table
     //       HINT: Your data should come back as a JSON object; use console.log() to inspect
     //             its contents and fields
     //       HINT: You will want to target #insertProducts for your new HTML elements
+    function jsonToTable(array){
+      var row = "";
+      array.forEach(function(elem){
+        console.log(elem);
+        row += "<tr>";
+        row += "<th>" + elem.title + "</th>";
+        row += "<th>" + elem.quantity + "</th>";
+        row += "<th>" + elem.categories.length + "</th>";
+        row += "<th>" + elem.price + "</th>";
+        row += "</tr>"
+        $("#insertProducts").append(row);
+        row = "";
+      });
+    }
+
+    // COMPLETE: Create an ajax GET request for /data/inventory.json
+    console.log("Sending ajax request.");
+
+    $.ajax({
+        url: "data/inventory.json",
+        type: "GET",
+      }).done(function(data, status){
+        console.log(status);
+        jsonToTable(data);
+    });
+
 })();
 </script>
 
