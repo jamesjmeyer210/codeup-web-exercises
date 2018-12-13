@@ -23,43 +23,14 @@
     padding: 10px;
 }
 
-.column.one-half {
-    width: 50%;
+.col-10 {
+  width: 10%;
 }
 
-.column.one-third {
-    width: 33.33%;
+.col-20 {
+  width: 20%;
 }
 
-.column.one-fourth {
-    width: 25%;
-}
-
-.column.one-sixth {
-    width: 16.66%;
-}
-
-.column.one-eighth {
-    width: 12.5%;
-}
-/* seventy percent*/
-.column.seventy-percent {
-    width: 70%;
-}
-/* thirty percent*/
-.column.thirty-percent {
-    width: 30%;
-}
-
-
-@media screen and (max-width: 780px) {
-    .column.one-half,
-    .column.one-third,
-    .column.one-fourth,
-    .column.one-sixth,
-    .column.one-eighth,
-    .column.seventy-percent,
-    .column.thirty-percent {
-        width: 100%;
-    }
+.col-80 {
+  width: 80%;
 }
