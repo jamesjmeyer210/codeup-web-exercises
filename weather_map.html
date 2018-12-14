@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=divice-width, user-scalable=no, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatable" content="ie=edge">
+        <style></style>
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+        </main>
+        <footer>
+        </footer>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script>
+          "use strict";
+
+          function kelvinToCelsius(k){
+            console.assert(!isNaN(k));
+            return (k - 273.15).toFixed(2);
+          }
+
+          function kelvinToFahrenheit(k){
+            console.assert(!isNaN(k));
+            return ( ((k * 9) / 5) - 459.67).toFixed(2);
+          }
+
+          function getWeatherData(){
+            $.get("http://api.openweathermap.org/data/2.5/weather", {
+              APPID: "195919dfceeead3386ee0ea3acf5490b",
+              q:     "San Antonio, US"
+            }).done(function(data, status) {
+              console.log(data);
+              return data;
+            }).fail(function(status, error){
+              console.log("Request failed on: " + status +
+                "\nData received: " + error);
+            });
+          }
+        </script>
+    </body>
+</html>
