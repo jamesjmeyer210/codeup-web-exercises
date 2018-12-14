@@ -17,24 +17,35 @@
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script>
           "use strict";
+          var forecasts = [];
 
           function kelvinToCelsius(k){
-            console.assert(!isNaN(k));
+            console.assert(!isNaN(k));  // fail if not number
             return (k - 273.15).toFixed(2);
           }
 
           function kelvinToFahrenheit(k){
-            console.assert(!isNaN(k));
+            console.assert(!isNaN(k));  // fail if not number
             return ( ((k * 9) / 5) - 459.67).toFixed(2);
           }
 
-          function getWeatherData(){
-            $.get("http://api.openweathermap.org/data/2.5/weather", {
+          function getWeatherData(forecasts){
+            console.assert(Array.isArray(forecasts)); // fail if not array
+
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
               APPID: "195919dfceeead3386ee0ea3acf5490b",
               q:     "San Antonio, US"
             }).done(function(data, status) {
-              console.log(data);
-              return data;
+
+              // push an element for each day into forecasts
+              for(var i = 0; i < data.list.length; i+=8){
+                console.log(forecasts.length + "\t" + data.list[i]);
+                forecasts.push(data.list[i]);
+                if(forecasts.length == 3){
+                  break;
+                }
+              }
+
             }).fail(function(status, error){
               console.log("Request failed on: " + status +
                 "\nData received: " + error);
