@@ -12,8 +12,8 @@
         <h1>Weather Application</h1>
         <h2>San Antonio</h2>
       </header>
-      <main id="forecasts" class="container">
-        <div class="row-64">
+      <main class="container">
+        <div id="forecasts" class="row-64">
           <div class="column col-33">
             <div>
               <span>@high</span><span>/</span><span>@low</span>
@@ -92,29 +92,31 @@
             return "" + count + " " + descript + " " + icon;
           }
 
-          function forecastToHtml(forecast){
+          function forecastToHtml(forecast, card){
             console.assert(typeof(forecast) == "object");
+            console.assert(index == 1 || index == 2 || index == 3);
 
-            console.log(
-              forecastCloudtoHtml(
-                forecast.clouds.all,
-                forecast.weather[0].description,
-                forecast.weather[0].icon)
-              );
-            console.log(
-              forecastAirToHtml(
-                forecast.main.humidity,
-                forecast.main.pressure)
-              );
-            console.log(
-              forecastTempToHtml(
-                forecast.main.temp,
-                forecast.main.temp_max,
-                forecast.main.temp_min)
-              );
-            console.log(
-              forecastWindToHtml(forecast.wind.speed, forecast.wind.deg)
-            );
+
+            // console.log(
+            //   forecastCloudtoHtml(
+            //     forecast.clouds.all,
+            //     forecast.weather[0].description,
+            //     forecast.weather[0].icon)
+            //   );
+            // console.log(
+            //   forecastAirToHtml(
+            //     forecast.main.humidity,
+            //     forecast.main.pressure)
+            //   );
+            // console.log(
+            //   forecastTempToHtml(
+            //     forecast.main.temp,
+            //     forecast.main.temp_max,
+            //     forecast.main.temp_min)
+            //   );
+            // console.log(
+            //   forecastWindToHtml(forecast.wind.speed, forecast.wind.deg)
+            // );
           }
 
           function getWeatherData(){
@@ -134,11 +136,10 @@
                 }
               }
 
-              //console.log(forecasts);
-
-              forecasts.forEach(function(forecast){
-                forecastToHtml(forecast);
-              });
+              var cards = $("#forecasts").children();
+              for(var i = 0; i < 3; i++){
+                forecastToHtml(forecasts[i], cards[i]);
+              }
 
             }).fail(function(status, error){
               console.log("Request failed on: " + status +
