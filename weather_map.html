@@ -5,19 +5,66 @@
         <meta name="viewport"
             content="width=divice-width, user-scalable=no, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatable" content="ie=edge">
-        <style></style>
+        <link rel="stylesheet" href="css/ajax-blog.css">
     </head>
     <body>
-        <header>
-        </header>
-        <main>
-        </main>
-        <footer>
-        </footer>
+      <header class="container">
+        <h1>Weather Application</h1>
+        <h2>San Antonio</h2>
+      </header>
+      <main id="forecasts" class="container">
+        <div class="row-64">
+          <div class="column col-33">
+            <div>
+              <span>@high</span><span>/</span><span>@low</span>
+            </div>
+            <div>@cloud-icon</div>
+            <div>
+              <span>Clouds:</span>@clouds
+            </div>
+            <div>
+              <span>Wind:</span><span>@wind</span>
+            </div>
+            <div>
+              <span>Pressure:</span><span>@pressure</span>
+            </div>
+          </div>
+          <div class="column col-33">
+            <div>
+              <span>@high</span><span>/</span><span>@low</span>
+            </div>
+            <div>@cloud-icon</div>
+            <div>
+              <span>Clouds:</span>@clouds
+            </div>
+            <div>
+              <span>Wind:</span><span>@wind</span>
+            </div>
+            <div>
+              <span>Pressure:</span><span>@pressure</span>
+            </div>
+          </div>
+          <div class="column col-33">
+            <div>
+              <span>@high</span><span>/</span><span>@low</span>
+            </div>
+            <div>@cloud-icon</div>
+            <div>
+              <span>Clouds:</span>@clouds
+            </div>
+            <div>
+              <span>Wind:</span><span>@wind</span>
+            </div>
+            <div>
+              <span>Pressure:</span><span>@pressure</span>
+            </div>
+          </div>
+        </div>
+      </main>
+
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script>
           "use strict";
-          var forecasts = [];
 
           function kelvinToCelsius(k){
             console.assert(!isNaN(k));  // fail if not number
@@ -29,22 +76,69 @@
             return ( ((k * 9) / 5) - 459.67).toFixed(2);
           }
 
-          function getWeatherData(forecasts){
-            console.assert(Array.isArray(forecasts)); // fail if not array
+          function forecastTempToHtml(ave, hi, lo){
+            return "\taverage: " + ave + "\thigh: " + hi + "\tlow: " + lo;
+          }
 
+          function forecastWindToHtml(speed, degree){
+            return "" + speed + " " + degree;
+          }
+
+          function forecastAirToHtml(humidity, pressure){
+            return "" + humidity + " " + pressure;
+          }
+
+          function forecastCloudtoHtml(count, descript, icon){
+            return "" + count + " " + descript + " " + icon;
+          }
+
+          function forecastToHtml(forecast){
+            console.assert(typeof(forecast) == "object");
+
+            console.log(
+              forecastCloudtoHtml(
+                forecast.clouds.all,
+                forecast.weather[0].description,
+                forecast.weather[0].icon)
+              );
+            console.log(
+              forecastAirToHtml(
+                forecast.main.humidity,
+                forecast.main.pressure)
+              );
+            console.log(
+              forecastTempToHtml(
+                forecast.main.temp,
+                forecast.main.temp_max,
+                forecast.main.temp_min)
+              );
+            console.log(
+              forecastWindToHtml(forecast.wind.speed, forecast.wind.deg)
+            );
+          }
+
+          function getWeatherData(){
             $.get("http://api.openweathermap.org/data/2.5/forecast", {
               APPID: "195919dfceeead3386ee0ea3acf5490b",
               q:     "San Antonio, US"
             }).done(function(data, status) {
+              console.log(data);
+              var forecasts = [];
 
               // push an element for each day into forecasts
               for(var i = 0; i < data.list.length; i+=8){
-                console.log(forecasts.length + "\t" + data.list[i]);
+                //console.log(forecasts.length + "\t" + data.list[i]);
                 forecasts.push(data.list[i]);
                 if(forecasts.length == 3){
                   break;
                 }
               }
+
+              //console.log(forecasts);
+
+              forecasts.forEach(function(forecast){
+                forecastToHtml(forecast);
+              });
 
             }).fail(function(status, error){
               console.log("Request failed on: " + status +
