@@ -90,7 +90,7 @@
             }
 
             { // for divs[1]
-              $(divs[1]).text = "CLOUD ICON";
+              $(divs[1]).text(forecast.weather[0].icon);
             }
 
             { // for divs[2]
@@ -110,26 +110,7 @@
               console.assert(spans.length == 2);
               $(spans[1]).text(forecast.main.pressure);
             }
-            // console.log(
-            //   forecastCloudtoHtml(
-            //     forecast.clouds.all,
-            //     forecast.weather[0].description,
-            //     forecast.weather[0].icon)
-            //   );
-            // console.log(
-            //   forecastAirToHtml(
-            //     forecast.main.humidity,
-            //     forecast.main.pressure)
-            //   );
-            // console.log(
-            //   forecastTempToHtml(
-            //     forecast.main.temp,
-            //     forecast.main.temp_max,
-            //     forecast.main.temp_min)
-            //   );
-            // console.log(
-            //   forecastWindToHtml(forecast.wind.speed, forecast.wind.deg)
-            // );
+
           }
 
           function getWeatherData(){
