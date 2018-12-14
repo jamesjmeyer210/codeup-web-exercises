@@ -76,22 +76,6 @@
             return ( ((k * 9) / 5) - 459.67).toFixed(2);
           }
 
-          function forecastTempToHtml(ave, hi, lo){
-            return "\taverage: " + ave + "\thigh: " + hi + "\tlow: " + lo;
-          }
-
-          function forecastWindToHtml(speed, degree){
-            return "" + speed + " " + degree;
-          }
-
-          function forecastAirToHtml(humidity, pressure){
-            return "" + humidity + " " + pressure;
-          }
-
-          function forecastCloudtoHtml(count, descript, icon){
-            return "" + count + " " + descript + " " + icon;
-          }
-
           function forecastToHtml(forecast, card){
             console.assert(typeof(forecast) == "object");
             console.assert(index == 1 || index == 2 || index == 3);
@@ -137,7 +121,8 @@
               }
 
               var cards = $("#forecasts").children();
-              for(var i = 0; i < 3; i++){
+              console.assert(forecast.length == cards.length);
+              for(var i = 0; i < forecasts.length; i++){
                 forecastToHtml(forecasts[i], cards[i]);
               }
 
