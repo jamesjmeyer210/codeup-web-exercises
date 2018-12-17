@@ -4,3 +4,7 @@ httpserver.py
 node_modules/*
 .eslintrc
 package-lock.json
+nweb23.c
+nweb23
+nweb.log
+index.html
