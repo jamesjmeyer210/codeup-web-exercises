@@ -2,8 +2,9 @@
     box-sizing: border-box;
 }
 
-body{
+body, h1, h2, h3, h4, h5, h6 {
   font-family: "comfortaa","cursive";
+  font-weight: lighter;
 }
 
 .container {
@@ -63,6 +64,7 @@ body{
 
 .card {
   border: 2px black solid;
+  border-radius: 8px;
   background-color: #FFFFF0;
   margin: 0.5%;
 }
