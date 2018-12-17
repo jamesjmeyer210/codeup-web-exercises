@@ -5,7 +5,7 @@
         <meta name="viewport"
             content="width=divice-width, user-scalable=no, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatable" content="ie=edge">
-        <link rel="stylesheet" href="css/ajax-blog.css">
+        <link rel="stylesheet" href="css/weather_map.css">
         <style>
           html, body {
             height: 100%;
@@ -74,101 +74,103 @@
       </main>
       <div id="map"></div>
 
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script>
-          "use strict";
+      <script src="node_modules/jquery/dist/jquery.js"></script>
+      <script>
+        "use strict";
 
-          function kelvinToCelsius(k){
-            console.assert(!isNaN(k));  // fail if not number
-            return (k - 273.15).toFixed(2);
+        function kelvinToCelsius(k){
+          console.assert(!isNaN(k));  // fail if not number
+          return (k - 273.15).toFixed(2);
+        }
+
+        function kelvinToFahrenheit(k){
+          console.assert(!isNaN(k));  // fail if not number
+          return ( ((k * 9) / 5) - 459.67).toFixed(2);
+        }
+
+        function forecastToHtml(forecast, card){
+          console.assert(typeof(forecast) == "object");
+
+          var divs = $(card).children();
+          console.assert(divs.length == 5);
+
+          { // for divs[0]
+            var spans = $(divs[0]).children();
+            console.assert(spans.length == 3);
+            $(spans[0]).text(forecast.main.temp_min);
+            $(spans[2]).text(forecast.main.temp_max);
           }
 
-          function kelvinToFahrenheit(k){
-            console.assert(!isNaN(k));  // fail if not number
-            return ( ((k * 9) / 5) - 459.67).toFixed(2);
+          { // for divs[1]
+            $(divs[1]).text(forecast.weather[0].icon);
           }
 
-          function forecastToHtml(forecast, card){
-            console.assert(typeof(forecast) == "object");
-
-            var divs = $(card).children();
-            console.assert(divs.length == 5);
-
-            { // for divs[0]
-              var spans = $(divs[0]).children();
-              console.assert(spans.length == 3);
-              $(spans[0]).text(forecast.main.temp_min);
-              $(spans[2]).text(forecast.main.temp_max);
-            }
-
-            { // for divs[1]
-              $(divs[1]).text(forecast.weather[0].icon);
-            }
-
-            { // for divs[2]
-              var spans = $(divs[2]).children();
-              console.assert(spans.length == 2);
-              $(spans[1]).text(forecast.weather[0].description);
-            }
-
-            { // for divs[3]
-              var spans = $(divs[3]).children();
-              console.assert(spans.length == 2);
-              $(spans[1]).text(forecast.wind.speed);
-            }
-
-            {
-              var spans = $(divs[4]).children();
-              console.assert(spans.length == 2);
-              $(spans[1]).text(forecast.main.pressure);
-            }
-
+          { // for divs[2]
+            var spans = $(divs[2]).children();
+            console.assert(spans.length == 2);
+            $(spans[1]).text(forecast.weather[0].description);
           }
 
-          function getWeatherData(){
-            $.get("http://api.openweathermap.org/data/2.5/forecast", {
-              APPID: "195919dfceeead3386ee0ea3acf5490b",
-              q:     "San Antonio, US"
-            }).done(function(data, status) {
-              console.log(data);
-              var forecasts = [];
+          { // for divs[3]
+            var spans = $(divs[3]).children();
+            console.assert(spans.length == 2);
+            $(spans[1]).text(forecast.wind.speed);
+          }
 
-              // push an element for each day into forecasts
-              for(var i = 0; i < data.list.length; i+=8){
-                //console.log(forecasts.length + "\t" + data.list[i]);
-                forecasts.push(data.list[i]);
-                if(forecasts.length == 3){
-                  break;
-                }
+          {
+            var spans = $(divs[4]).children();
+            console.assert(spans.length == 2);
+            $(spans[1]).text(forecast.main.pressure);
+          }
+
+        }
+
+        function getWeatherData(){
+          $.get("http://api.openweathermap.org/data/2.5/forecast", {
+            APPID: "195919dfceeead3386ee0ea3acf5490b",
+            q:     "San Antonio, US"
+          }).done(function(data, status) {
+            console.log(data);
+            var forecasts = [];
+
+            // push an element for each day into forecasts
+            for(var i = 0; i < data.list.length; i+=8){
+              //console.log(forecasts.length + "\t" + data.list[i]);
+              forecasts.push(data.list[i]);
+              if(forecasts.length == 3){
+                break;
               }
+            }
 
-              var cards = $("#forecasts").children();
-              console.assert(forecasts.length == cards.length);
-              for(var i = 0; i < forecasts.length; i++){
-                forecastToHtml(forecasts[i], cards[i]);
-              }
+            var cards = $("#forecasts").children();
+            console.assert(forecasts.length == cards.length);
+            for(var i = 0; i < forecasts.length; i++){
+              forecastToHtml(forecasts[i], cards[i]);
+            }
 
-            }).fail(function(status, error){
-              console.log("Request failed on: " + status +
-                "\nData received: " + error);
-            });
-          }
+          }).fail(function(status, error){
+            console.log("Request failed on: " + status +
+              "\nData received: " + error);
+          });
+        }
 
-          var map;
-          function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: -34.397, lng: 150.644},
-              zoom: 8
-            });
+        getWeatherData();
 
-            var marker = new google.maps.Marker({
-              position: {lat: -34.397, lng: 150.644},
-              map: map,
-              title: 'Hello World!'
-            });
-          }
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 29.4266507, lng: -98.4917707},
+            zoom: 8
+          });
+          // 29.4266507,-98.4917707
+          var marker = new google.maps.Marker({
+            position: {lat: 29.4266507, lng: -98.4917707},
+            map: map,
+            title: ''
+          });
+        }
 
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfnei4qR2IzcST_DdGBYIFyU02JyOnSQ8&callback=initMap" async defer></script>
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfnei4qR2IzcST_DdGBYIFyU02JyOnSQ8&callback=initMap" async defer></script>
     </body>
 </html>
