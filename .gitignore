@@ -1,3 +1,6 @@
 .idea/*
 api.key
 httpserver.py
+node_modules/*
+.eslintrc
+package-lock.json
