@@ -1,6 +1,6 @@
 "use strict";
 const fetch = require("node-fetch");
-// 
+//
 // const wait = (time) => {
 //     return new Promise((resolve, reject) => {
 //         setTimeout(() => {
@@ -13,10 +13,12 @@ const fetch = require("node-fetch");
 // wait(3000).then(() => console.log("You'll see this after 3 seconds"));
 
 const githubUserStatus = (token) => {
-  const url = "https://api.github.com/users/:jamesjmeyer210/events"
-  return fetch(url, {headers: {'Authorization': `${token}`}})
+  const url = "https://api.github.com/users/jamesjmeyer210"
+  return fetch(url, {headers: {'Authorization': url}})
     .then( (response) => {
-      console.log(response.json());
+      response.json().then( data => {
+        console.log(data);
+      });
     })
     .catch(error => {
       console.error(error);
